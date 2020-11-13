@@ -1,7 +1,7 @@
 import cv2
 
 # So in this line of code we have loaded the image, you need to have an image in your working directory
-image = cv2.imread("real_00064.jpg")
+image = cv2.imread("real_00051.jpg")
 blurImg = cv2.blur(image,(30,30))
 #gausBlur = cv2.GaussianBlur(image, (5,5),0)
 
@@ -19,11 +19,11 @@ face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 quit = False
 i = 1
-#valami
+
 while  quit == False and i < 60:
     eyes = eye_cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=i)
     print(f"I értéke: {i}")
-    print(f"eyes értéke: {len(eyes)}")
+    print(f"Szem mennyisége: {len(eyes)}")
     if len(eyes) == 2:
         quit = True
     i+=1
@@ -34,7 +34,7 @@ quit = False
 while  quit == False and i < 60 and len(eyes) == 2:
     faces = face_cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=i)
     print(f"I értéke: {i}")
-    print(f"arc értéke: {len(faces)}")
+    print(f"Arc mennyisége: {len(faces)}")
     if len(faces) == 1:
         quit = True
     i+=1
