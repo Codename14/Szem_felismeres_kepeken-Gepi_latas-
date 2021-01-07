@@ -8,9 +8,9 @@ blurImg = cv2.blur(image,(30,30))
 
 #loading our Haar Cascade Classifier
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
-#face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+#face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml") #original
 
-#Teszt rész
+#Test
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_15.xml") #trained by 128 positive image, 270 negative image
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_16.xml") #trained by 128 positive image, 270 negative image
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_17.xml") #trained by 128 positive image, 270 negative image
