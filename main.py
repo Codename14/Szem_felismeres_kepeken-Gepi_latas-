@@ -1,21 +1,23 @@
 import cv2
 
 #loaded the image, you need to have an image in your working directory
-image = cv2.imread("face_dataset/real_00044.jpg.")
+image = cv2.imread("face_dataset/real_00019.jpg.")
 blurImg = cv2.blur(image,(30,30))
-#gausBlur = cv2.GaussianBlur(image, (5,5),0)
+#gausBlur = cv2.GaussianBlur(image0 (5,5),0)
 
 
 #loading our Haar Cascade Classifier
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
-face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+#face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+
+#Teszt rész
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_15.xml") #trained by 128 positive image, 270 negative image
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_16.xml") #trained by 128 positive image, 270 negative image
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_17.xml") #trained by 128 positive image, 270 negative image
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_18.xml") #trained by 128 positive image, 270 negative image
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_19.xml") #trained by 128 positive image, 270 negative image
 #face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size24x24_stages_20.xml") #trained by 128 positive image, 270 negative image
-#face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size32x32_stages_14.xml") #trained by 128 positive image, 270 negative image
+face_cascade = cv2.CascadeClassifier("OwnFaceCascade_size32x32_stages_14.xml") #trained by 128 positive image, 270 negative image
 
 quit = False
 i = 1
@@ -54,9 +56,9 @@ while  quit == False and i < 200 and len(eyes) == 2:
 notreal = False
 
 if  len(eyes) > 0 and len(faces) > 0 :
-    # Jobb szem
+    # Right eye
      # Starting point
-     # x kordináta x kordináta  vagy  y kordináta y kordináta
+     # x cordinate x cordinate  or  y cordinate y cordinate
     if faces[0,0] > eyes[0,0] or faces[0,1] > eyes[0,1]:
         notreal = True
         print("Hibás pozíció 1")
@@ -64,7 +66,7 @@ if  len(eyes) > 0 and len(faces) > 0 :
     if [faces[0,0] + faces[0,2]] < [eyes[0,0] + eyes[0,2]] or [faces[0,1] + faces[0,3]] < [eyes[0,0] + eyes[0,3]]:
         notreal = True
         print("Hibás pozíció 2")
-    # Bal szem
+    # Left eye
     # Starting point
     if faces[0, 0] > eyes[1, 0] or faces[0, 1] > eyes[1, 1]:
         notreal = True
